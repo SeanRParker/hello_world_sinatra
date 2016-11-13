@@ -1,14 +1,17 @@
+require 'rubygems'
 require 'sinatra'
 require 'pry'
 require 'babbler'
+require 'Haml'
 
 # DSL - Domain Specific Language
 
 # Root URL
 get '/' do
-  "Hello World!"
+  haml :home
 end
 
+# binding.pry
 get '/sean' do
   "Yo!"
 end
@@ -28,23 +31,17 @@ get '/hello/:name/:age' do
   "#{params[:name]}, you will be #{age} in 10 years."
 end
 
-#  Query String Parameters
-get '/sport' do
-  name = params[:name]
-  if params[:favorite] == 'longboard'
-    "you are awesome, #{name}!"
-  else
-    "Cruise or die #{name}!"
-  end
-end
-
 # Query String
 # http://localhost:4567/sport?favorite=longboard
 # http://localhost:4567/sport?favorite=longboard&name=sean
 
+#  Query String Parameters
+get '/sport' do
+  haml :sport
+end
 
 get '/secret' do
-  erb :secret
+  haml :secret
 end
 
 get '/zoo' do
@@ -58,17 +55,18 @@ get '/zoo' do
     'Someone Else'
   ]
   @name = 'Jakey Dude'
-  erb :zoo
-end
-
-get '/numbers' do
-  @numbers = [1,2,3,4,5,6,7,8,9,10]
-  erb :numbers
+  haml :zoo
 end
 
 post '/secret' do
   params[:message].reverse
 end
+
+get '/numbers' do
+  @numbers = [1,2,3,4,5,6,7,8,9,10]
+  haml :numbers
+end
+
 
 not_found do
   status 404
