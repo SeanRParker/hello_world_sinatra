@@ -1,0 +1,30 @@
+%h1 Welcome to the DevPoint Labs Zoo!
+%hr/
+%div
+  %h3 Animals in the Zoo
+  %ul
+    - @animals.each do |animal|
+      %li= animal
+
+
+-# Result in HTML
+-# <h1>Welcome to the DevPoint Labs Zoo!</h1>
+-# <hr />
+-# <div>
+-#   <h3>Animals in the Zoo</h3>
+-#   <ul>
+-#     <% @animals.each do |animal| %>
+-#       <li><%= animal %></li>
+-#     <% end %>
+-#   </ul>
+-# </div>
+
+
+-#  ERB syntax
+-# <!-- Non Echoing ERB Tag -->
+-# <!-- Looping, Variable Creation, Conditionals -->
+-# <!-- <% name = 'Jake Sorce' %> -->
+-#
+-# <!-- Echoing ERB Tag -->
+-# <!-- Printing out variable values-->
+-# <%= @name %>
