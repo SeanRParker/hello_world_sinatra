@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.1'
+ruby '2.5.0'
 
 gem 'pry', '~> 0.11.3'
 gem 'sinatra', '~> 1.4.7'
